@@ -13,6 +13,10 @@ export default class extends Component {
 
         firebase.database().ref(`users/${uid}/completedChallenge/${challengeKey}`).set({
             completedAt: new Date().toDateString(),
+<<<<<<< HEAD
+=======
+            title: child.val().title,
+>>>>>>> 90f889d11711b5dcb479a25938ac3d1de500a35f
             status: 'pending',
             acceptedOn: this.props.item.acceptedOn,
             category: this.props.item.category,
@@ -59,7 +63,13 @@ const styles = {
     card: {
         flexDirection: 'row',
         backgroundColor: '#f6f6f6',
+<<<<<<< HEAD
         margin: 15,
+=======
+        marginTop: 10,
+        marginLeft: 15,
+        marginRight: 15,
+>>>>>>> 90f889d11711b5dcb479a25938ac3d1de500a35f
         justifyContent: 'center',
     },
     btnGrp: {
