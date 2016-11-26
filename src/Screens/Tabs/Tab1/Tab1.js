@@ -15,7 +15,7 @@ import Modal from 'react-native-animated-modal';
 import Slider from 'react-native-slider';
 
 
-export default class Tab1 extends Component {
+class Tab1 extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -254,3 +254,5 @@ const styles = {
         borderRadius: 4,
     }
 }
+
+export {Tab1};
