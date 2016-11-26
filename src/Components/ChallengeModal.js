@@ -34,8 +34,9 @@ class ChallengeModal extends Component {
         const {uid} = firebase.auth().currentUser;
         firebase.database().ref(`users/${uid}/pendingChallenge`).push({
              acceptedOn: new Date().toDateString(),
-             title: 'Clean room',
-             content: 'Clean youre room for 500php okay',
+             title: this.props.title,
+             task: this.props.task,
+             category: this.props.category,
              status: 'pending'
         })
     }
@@ -46,7 +47,8 @@ class ChallengeModal extends Component {
             <Animated.View style={[styles.container, { backgroundColor: "rgba(52,52,52,0)" }, { transform: [{ translateY: this.state.offset }] }]}>
                 <View style={modalWrapper}>
                     <Image style={imgStyle} source={{ uri: `${imgUrl}` }} resizeMode='contain' />
-                    <Text style={challengeText}>{this.props.question}THIS IS FILLER TEXT</Text>
+                    <Text>{this.props.title}</Text> 
+                    <Text style={challengeText}>{this.props.task}</Text>
                     <View style={btnRow}>
                         <View style={yesBtn}>
                             <Text onPress={this.acceptChallenge}>YES</Text>

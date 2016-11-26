@@ -11,12 +11,16 @@
     "firebase": "^3.6.1",
     "react": "15.4.1",
     "react-native": "0.38.0",
+    "react-native-animated-modal": "^1.0.2",
     "react-native-drawer": "^2.3.0",
     "react-native-elements": "^0.7.0",
     "react-native-flip-card-view": "0.0.4",
     "react-native-onesignal": "^1.2.3",
+    "react-native-pie-chart": "^1.0.4",
+    "react-native-progress-bar-classic": "^1.2.0",
     "react-native-root-toast": "^1.0.3",
     "react-native-router-flux": "^3.37.0",
+    "react-native-slider": "^0.9.1",
     "react-native-vector-icons": "^3.0.0"
   },
   "jest": {
