@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import firebase from 'firebase';
 import { Scene, Router, Actions, Modal } from 'react-native-router-flux';
 import { Login, Settings, Profile, Registration } from './Screens';
-import { FullScreenModal, NavigationDrawer, TabIcon, SmallModal } from './Components';
+import { FullScreenModal, NavigationDrawer, TabIcon, SmallModal, ChallengeModal } from './Components';
 import { Tab1, Tab1_1, Tab2, Tab2_1, Tab3, Tab3_1 } from './Screens/Tabs/';
 import OneSignal from 'react-native-onesignal';
 import Toast from 'react-native-root-toast';
@@ -29,7 +29,7 @@ export default class App extends Component {
         } else {
             //When not in app and user click this is fired
             //App opens at Root, then Function triggered
-            alert('This is number 2')
+           Actions.challengeModal({ question: data.question, url: data.url });
         }
     }
     render() {
@@ -77,6 +77,7 @@ export default class App extends Component {
                         {/*MODAL POP-UP ERROR*/}
                         <Scene key="ModalError" component={FullScreenModal} title="Modal Error" direction="vertical" hideNavBar />
                     </Scene>
+                     <Scene key="challengeModal" component={ChallengeModal} />
                     <Scene key="error" component={SmallModal} />
                 </Scene>
             </Router>
