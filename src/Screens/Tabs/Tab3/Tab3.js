@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from '../../../Components';
-import { Text, ListView, View } from 'react-native';
+import { Text, ListView, View, Image, ScrollView } from 'react-native';
 import firebase from 'firebase';
 import PendingChallenge from './PendingChallenge';
 import CompletedChallenge from './CompletedChallenge';
@@ -30,7 +30,8 @@ class Tab3 extends Component {
             const challenges = [];
             snap.forEach((child) => {
                 challenges.push({
-                    key: child.key
+                    key: child.key,
+                    title: child.val().title,
                 });
             });
             this.setState({
@@ -43,7 +44,9 @@ class Tab3 extends Component {
             const completed = [];
             snap.forEach((child) => {
                 completed.push({
-                    key: child.key
+                    key: child.key,
+                    title: child.val().title,
+                    value: child.val().value,
                 });
             });
             this.setState({
@@ -54,40 +57,61 @@ class Tab3 extends Component {
     renderItem(item) {
         return <PendingChallenge item={item} />
     }
-    renderCompletedItem(item){
+    renderCompletedItem(item) {
         return <CompletedChallenge item={item} />
     }
     render() {
         const {container, btnWrapper, pendingList} = styles;
         return (
             <View style={container}>
+                <Text style={{ fontFamily: 'montserratsemi', color: '#fff', fontSize: 25, marginTop: 65, marginLeft: 15, }}>PENDING</Text>
                 <ListView
                     dataSource={this.state.pendingDataSource}
                     renderRow={this.renderItem.bind(this)}
                     enableEmptySections
-                    style={pendingList}
+                    style={[pendingList]}
                     />
-                <ListView
-                    dataSource={this.state.completedDataSource}
-                    renderRow={this.renderCompletedItem.bind(this)}
-                    enableEmptySections
-                    style={pendingList}
-                    />
+                <ScrollView style={{ backgroundColor: '#f6f6f6', zIndex: -2, }}>
+                    <Image
+                        source={require('../../../Assets/img/divider.png')}
+                        resizeMode='cover'
+                        />
+                    <View style={styles.completedWrapper}>
+                        <Image
+                            source={require('../../../Assets/img/completed.png')}
+                            resizeMode='contain'
+                            />
+                    </View>
+                    <ListView
+                        dataSource={this.state.completedDataSource}
+                        renderRow={this.renderCompletedItem.bind(this)}
+                        enableEmptySections
+                        style={{ marginTop: 0, }}
+                        />
+                </ScrollView>
+
             </View>
         );
     }
 }
 const styles = {
-    constainer: {
+    container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
+        backgroundColor: '#3e3e78'
+    },
+    completedWrapper: {
+        alignItems: 'center',
+        height: 80,
+        marginTop: 20,
     },
     btnWrapper: {
         padding: 10
     },
     pendingList: {
-        marginTop: 100
+        marginTop: 10
+    },
+    text: {
+        fontFamily: 'montserrat'
     }
 }
 

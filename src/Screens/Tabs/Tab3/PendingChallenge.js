@@ -12,7 +12,8 @@ export default class extends Component {
 
         firebase.database().ref(`users/${uid}/completedChallenge/${challengeKey}`).set({
             completedAt: new Date().toDateString(),
-            text: 'Filler Text'
+            text: 'Filler Text',
+            title: child.val().title,
         });
 
         firebase.database().ref(`users/${uid}/pendingChallenge/${challengeKey}`).remove();
@@ -20,15 +21,15 @@ export default class extends Component {
     render() {
         return (
             <View>
-                <Card flexDirection='row'>
+                <View style={styles.card}>
                     <View style={styles.todoDesc}>
-                        <Text>{this.props.item.key}</Text>
+                        <Text style={styles.text}>{this.props.item.title}</Text>
                     </View>
                     <View style={styles.btnGrp}>
-                        <Icon name="ios-trash" size={30} color="black" />
-                        <Icon name="ios-checkmark" size={30} color="black" onPress={() => this.completedChallenge()} />
+                        <Icon name="ios-trash" size={30} color="#fff" />
+                        <Icon name="ios-checkmark" size={30} color="#fff" onPress={() => this.completedChallenge()} />
                     </View>
-                </Card>
+                </View>
             </View>
         );
     }
@@ -36,11 +37,24 @@ export default class extends Component {
 
 const styles = {
     todoDesc: {
-        flex: 2
+        flex: 2,
+        justifyContent: 'center',
+        padding: 15,
+    },
+    card: {
+        flexDirection: 'row',
+        backgroundColor: '#f6f6f6',
+        margin:15,
+        justifyContent: 'center',
     },
     btnGrp: {
         flexDirection: 'row',
         flex: 1,
-        justifyContent: 'space-around'
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        backgroundColor: '#686099',
+    },
+    text: {
+        fontFamily: 'montserrat'
     }
 }

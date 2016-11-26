@@ -44,7 +44,7 @@ class Tab1 extends Component {
             onPanResponderMove: Animated.event([null, {
                 dx: this.state.pan.x,
                 dy: this.state.pan.y
-            }]),
+            }, ()=> {this.setState({pulseMoneyVisible: false})}]),
             onPanResponderRelease: (e, gesture) => {
                 if (this.isDropZone(gesture)) { //Step 1
                     this.setState({

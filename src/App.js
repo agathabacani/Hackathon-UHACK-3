@@ -62,7 +62,7 @@ export default class App extends Component {
 
                                 {/*TAB SET 3*/}
                                 <Scene key="ThirdTab" title="Tab 3" tabID="3" icon={TabIcon}>
-                                    <Scene key="Tab3" component={Tab3} title="Tab: 3" />
+                                    <Scene key="Tab3" component={Tab3} title="Challenges" titleStyle={{color: 'white', fontFamily: 'montserrat'}} drawerImage={require('./Assets/img/menu_burger.png')} navigationBarStyle={{ backgroundColor: 'transparent', borderBottomColor:'transparent', elevation: 0, }}/>
                                     <Scene key="Tab3_1" component={Tab3_1} title="Tab: 3.1" />
                                 </Scene>
 
