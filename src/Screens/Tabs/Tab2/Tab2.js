@@ -28,7 +28,8 @@ class Tab2 extends Component {
                     completed: child.val().completed,
                     title: child.val().title,
                     count: child.val().count,
-                    needed: child.val().needed
+                    needed: child.val().needed,
+                    imgURL: child.val().imgURL
                 });
             });
             this.setState({

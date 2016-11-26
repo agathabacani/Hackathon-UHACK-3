@@ -3,10 +3,23 @@ import { View, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 const SideNavMenu = (props) => {
+    const {topRow, container, bottomRow, linkStyle, sideMenuHeader, imgPlacehold} = styles;
     return (
-        <View style={styles.container}>
-            <Text style={styles.linkStyle} onPress={() => Actions.FirstTab()}>TAB HOME</Text>
-            <Text style={styles.linkStyle} onPress={() => Actions.profileScreen()}>PROFILE</Text>
+        <View style={container}>
+            <View style={sideMenuHeader}>
+
+            </View>
+            <View style={topRow}>
+                <View style={imgPlacehold}/>
+            </View>
+            <View style={bottomRow}>
+                <Text style={linkStyle} onPress={() => Actions.FirstTab()}>HOME</Text>
+                <Text style={linkStyle} onPress={() => Actions.profileScreen()}>ACHIEVEMENTS</Text>
+                <Text style={linkStyle} onPress={() => Actions.profileScreen()}>PROFILE</Text>
+                <Text style={linkStyle} onPress={() => Actions.profileScreen()}>SETTINGS</Text>
+                <Text style={linkStyle} onPress={() => Actions.profileScreen()}>LOGOUT</Text>
+            </View>
+
         </View>
     );
 };
@@ -14,13 +27,32 @@ const SideNavMenu = (props) => {
 const styles = {
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: 'black'
     },
     linkStyle: {
         fontSize: 20,
-        color: 'white'
+        color: 'black',
+        margin: 5,
+     
+    },
+    sideMenuHeader: {
+        flex: 1,
+        backgroundColor:'blue'
+    },
+    topRow: {
+        flex: 3,
+        backgroundColor: 'orange',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    bottomRow: {
+        flex: 7,
+        paddingLeft: 15,
+        marginTop: 20
+    },
+    imgPlacehold: {
+        height: 75,
+        width: 75,
+        backgroundColor: 'red'
     }
 }
 

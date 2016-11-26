@@ -21,9 +21,27 @@ class Profile extends Component {
         });
     }
     render() {
+        const {firstRow, secondRow, imgWrap, img, avatarWrapper, avatar} = styles;
         return (
             <View style={styles.container}>
-                <Text>{this.state.totalBalance}</Text>
+            <View style={firstRow}>
+                <View style={imgWrap}>
+                    <View style={img}/>
+                    <Text>VAULT</Text>
+                      <Text>{this.state.totalBalance}</Text>
+                </View>
+                <View style={imgWrap}>
+                     <View style={img}/>
+                      <Text>BALANCE</Text>
+                       <Text>{this.state.totalBalance}</Text>
+                </View>
+            </View>
+            <View style={secondRow}>
+                
+                 <View style={avatarWrapper} >
+                    <View style={avatar} /> 
+                 </View>
+            </View>
             </View>
         );
     }
@@ -32,9 +50,34 @@ class Profile extends Component {
 const styles = {
     container: {
         flex: 1,
+        paddingTop: 54
+    },
+    firstRow: {
+        flex: 1,
+        backgroundColor: 'red',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignItems: 'center'
+    },
+    secondRow: {
+        flex: 2,
+        backgroundColor: 'blue',
         justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: 'red'
+        alignItems: 'center'
+    },
+    imgWrap: {
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    img: {
+        height: 75,
+        width: 75,
+        backgroundColor: 'black'
+    },
+    avatar: {
+        height: 200,
+        width: 90,
+        backgroundColor: 'black'
     }
 }
 

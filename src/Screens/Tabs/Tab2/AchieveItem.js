@@ -7,7 +7,7 @@ class AchieveItem extends Component {
 
 
     render() {
-        console.log(this.props)
+        console.log(this.props.item.imgURL)
         return (
             <View style={styles.cardWrapper}>
                 <FlipCard style={{ flex: 1 }}
@@ -29,7 +29,7 @@ class AchieveItem extends Component {
                     valueStyle={'default'}
                     progress={this.props.item.count}
                     />
-                <Image source={this.props.imgPath} style={styles.imgWrapper} resizeMode='stretch' />
+               {/* <Image source={{uri:`${imgPath}`}} style={styles.imgWrapper} resizeMode='stretch' /> */}
             </View>);
     }
     //Desired screen view method in back page
