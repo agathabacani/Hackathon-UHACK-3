@@ -5,8 +5,8 @@ import PieChart from 'react-native-pie-chart';
 export default class Chart extends Component {
     render() {
         const chart_wh = 80
-    const series = [123, 321, 123, 789, 537]
-    const sliceColor = ['#F44336','#2196F3','#F6F6F6', '#F6F6F6', '#f37a23']
+        const series = [this.props.val1, this.props.val2, this.props.val3, this.props.val4, this.props.val5]
+        const sliceColor = ['#F44336', '#2196F3', '#6a619b', '#6a619b', this.props.color]
 
         return (
             <PieChart
@@ -16,7 +16,7 @@ export default class Chart extends Component {
                 doughnut={true}
                 coverRadius={0.8}
                 coverFill={'#F6F6F6'}
-                style={{zIndex: -5,}}
+                style={{ zIndex: -5, }}
                 />
         );
     }

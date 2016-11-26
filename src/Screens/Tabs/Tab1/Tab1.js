@@ -13,7 +13,8 @@ import {
 import Chart from '../../../Components/savings-chart';
 import Modal from 'react-native-animated-modal';
 import Slider from 'react-native-slider';
-
+import Icon from 'react-native-vector-icons/Ionicons';
+import Pulse from 'react-native-pulse';
 
 class Tab1 extends Component {
     constructor(props) {
@@ -33,6 +34,8 @@ class Tab1 extends Component {
             savings2: 10,
             moneyToSave: 100,
             moneyInput: 0,
+
+            pulseMoneyVisible: false,
         };
 
 
@@ -47,11 +50,13 @@ class Tab1 extends Component {
                     this.setState({
                         isModalVisible: true,
                         isInSavings1: true,
+                        pulseMoneyVisible: true,
                     });
                 } else if (this.isDropZone2(gesture)) {
                     this.setState({
                         isModalVisible: true,
-                        isInSavings1: true,
+                        isInSavings2: true,
+                        pulseMoneyVisible: true,
                     });
                 } else {
                     Animated.spring(
@@ -143,6 +148,15 @@ class Tab1 extends Component {
         ).start();
     }
 
+    renderMoneyPulse() {
+        if (this.state.pulseMoneyVisible) {
+            return (
+                <View style={{ position: 'absolute', top: Window.height / 1.3 - 70, left: Window.width / 2 - 70, zIndex: -1, width: 140, height: 140, }}>
+                    <Pulse color='orange' numPulses={3} diameter={140} top={0} speed={20} duration={2000} />
+                </View>);
+        }
+    }
+
     render() {
         return (
             <View style={styles.mainContainer}>
@@ -156,29 +170,39 @@ class Tab1 extends Component {
                 <View
                     onLayout={this.setDropZoneValues.bind(this)}     //Step 2
                     style={styles.dropZone1}>
-                    <Text style={styles.text}>{this.state.savings1}</Text>
+                    <Image
+                        source={require('../../../Assets/img/goal1.png')}
+                        resizeMode='cover'
+                        />
                 </View>
                 <View
                     onLayout={this.setDropZoneValues2.bind(this)}     //Step 2
                     style={styles.dropZone2}>
-                    <Text style={styles.text}>{this.state.savings2}</Text>
+                    <Image
+                        source={require('../../../Assets/img/goal2.png')}
+                        resizeMode='cover'
+                        />
                 </View>
                 {/*DropZones*/}
                 <View style={{ marginTop: 29, marginLeft: 50, position: 'absolute' }}>
-                    <Chart />
+                    <Chart val1={123} val2={321} val3={123} val4={900} val5={607} color="#f37a23" />
                 </View>
                 <View style={{ marginTop: 29, marginLeft: 230, position: 'absolute' }}>
-                    <Chart />
+                    <Chart val1={123} val2={221} val3={123} val4={800} val5={607} color="#f38161" />
+                </View>
+                <View style={styles.addWrapper}>
+                    <Icon name="ios-add" size={40} color="#fff" />
                 </View>
 
                 {/*LegDay*/}
-                <View style={{ position: 'absolute', bottom: 0, height: 250, backgroundColor: '#f6f6f6' }}>
+                <View style={{ position: 'absolute', bottom: 0, height: 250, backgroundColor: '#f6f6f6', zIndex: -2 }}>
                     <Image
                         source={require('../../../Assets/img/divider.png')}
                         resizeMode='cover'
                         />
                 </View>
                 {this.renderDraggable()}
+                {this.renderMoneyPulse()}
                 <Modal isVisible={this.state.isModalVisible}
                     onModalHide={() => this.setValue()}>
                     {this.renderModalContent()}
@@ -198,10 +222,23 @@ const styles = {
         marginTop: 75,
         alignItems: 'center',
     },
+    addWrapper: {
+        height: 80,
+        width: 80,
+        position: 'absolute',
+        borderRadius: 40,
+        top: 270,
+        left: (Window.width / 2) - 40,
+        borderStyle: 'dotted',
+        borderColor: '#fff',
+        borderWidth: 2,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
     dropZone1: {
         alignSelf: 'center',
         height: 60,
-        backgroundColor: '#2c3e50',
+        backgroundColor: '#40396d',
         width: 60,
         borderRadius: 30,
         justifyContent: 'center',
@@ -212,7 +249,7 @@ const styles = {
     dropZone2: {
         alignSelf: 'center',
         height: 60,
-        backgroundColor: '#2c3e50',
+        backgroundColor: '#40396d',
         width: 60,
         borderRadius: 30,
         justifyContent: 'center',
