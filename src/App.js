@@ -50,7 +50,7 @@ export default class App extends Component {
 
                                 {/*TAB SET 1*/}
                                 <Scene key="FirstTab" title="Tab 1" tabID="1" iconType="rowing" icon={TabIcon}>
-                                    <Scene key="Tab1" component={Tab1} title="" onRight={() => alert("Right button")} rightTitle="Right" initial />
+                                    <Scene key="Tab1" component={Tab1} title="" initial drawerImage={require('./Assets/img/menu_burger.png')} navigationBarStyle={{ backgroundColor: 'transparent', borderBottomColor:'transparent', elevation: 0, }}/>
                                     <Scene key="Tab1_1" component={Tab1_1} title="Tab: 1.1" />
                                 </Scene>
 
@@ -94,8 +94,7 @@ const styles = {
     },
 
     tabIconStyle: {
-        backgroundColor: 'black',
-        borderColor: 'white',
-        borderWidth: 1
+        alignItems: 'center',
+        backgroundColor: '#564c89',
     }
 }

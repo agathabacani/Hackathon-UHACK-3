@@ -3,7 +3,7 @@ import { Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const TabIcon = (props) => (
-    <View>
+    <View style={{}}>
         <Icon name={iconType(props.tabID)} size={20} color="white" style={{ color: props.selected ? '#fc2632' : 'white' }} />
         <Text style={{ color: props.selected ? 'red' : 'white' }}>{props.title}</Text>
     </View>
