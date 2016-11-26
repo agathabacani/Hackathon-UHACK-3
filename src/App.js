@@ -50,19 +50,19 @@ export default class App extends Component {
 
                                 {/*TAB SET 1*/}
                                 <Scene key="FirstTab" title="Tab 1" tabID="1" iconType="rowing" icon={TabIcon}>
-                                    <Scene key="Tab1" component={Tab1} title="" initial  navigationBarStyle={{ backgroundColor: 'transparent', borderBottomColor:'transparent', elevation: 0, }}/>
+                                    <Scene key="Tab1" component={Tab1} title="" initial drawerImage={require('./Assets/img/menu_burger.png')} navigationBarStyle={{ backgroundColor: 'transparent', borderBottomColor:'transparent', elevation: 0, }}/>
                                     <Scene key="Tab1_1" component={Tab1_1} title="Tab: 1.1" />
                                 </Scene>
 
                                 {/*TAB SET 2*/}
-                                <Scene key="SecondTab" title="Achievements" tabID="2" icon={TabIcon}>
-                                    <Scene key="Tab2" component={Tab2} title="Achievements" />
+                                <Scene key="SecondTab" title="Achievements" tabID="2" icon={TabIcon} >
+                                    <Scene key="Tab2" component={Tab2} title="Achievements"  titleStyle={{color: 'white', fontFamily: 'montserrat'}} drawerImage={require('./Assets/img/menu_burger.png')} navigationBarStyle={{ backgroundColor: 'transparent', borderBottomColor:'transparent', elevation: 0}} />
                                     <Scene key="Tab2_1" component={Tab2_1} title="Tab: 2.1" />
                                 </Scene>
 
                                 {/*TAB SET 3*/}
                                 <Scene key="ThirdTab" title="Tab 3" tabID="3" icon={TabIcon}>
-                                    <Scene key="Tab3" component={Tab3} title="Challenges" titleStyle={{color: 'white', fontFamily: 'montserrat'}} drawerImage={require('./Assets/img/menu_burger.png')} navigationBarStyle={{ backgroundColor: 'transparent', borderBottomColor:'transparent', elevation: 0, }}/>
+                                    <Scene key="Tab3" component={Tab3} title="Challenges" titleStyle={{color: 'white', fontFamily: 'montserrat'}} drawerImage={require('./Assets/img/menu_burger.png')} navigationBarStyle={{ backgroundColor: 'transparent', borderBottomColor:'transparent', elevation: 0}}/>
                                     <Scene key="Tab3_1" component={Tab3_1} title="Tab: 3.1" />
                                 </Scene>
 

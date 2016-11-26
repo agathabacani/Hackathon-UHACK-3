@@ -21,22 +21,27 @@ class AchieveItem extends Component {
     }
     _renderFront() {
         return (
-            <View style={{ backgroundColor: 'red', flex: 1, height: 100 }}>
-                <Text>{this.props.item.title}</Text>
-                <Text>{this.props.item.count}</Text>
-                <Text>{this.props.item.needed}</Text>
-                <PBC
-                    valueStyle={'default'}
-                    progress={this.props.item.count}
-                    />
-               {/* <Image source={{uri:`${imgPath}`}} style={styles.imgWrapper} resizeMode='stretch' /> */}
+            <View style={{ backgroundColor: '#f6f6f6', flex: 1, flexDirection: 'row', height: 120, }}>
+                <View style={styles.todoDesc}>
+                    <Text style={styles.textTitle}>{this.props.item.title}</Text>
+                    <Text style={[styles.text, {marginTop: 5,}]}>Completed: {this.props.item.count}</Text>
+                    <Text style={[styles.text, {marginBottom: 5,}]}>Needed: {this.props.item.needed}</Text>
+                    <PBC
+                        valueStyle={'default'}
+                        progress={(this.props.item.count/this.props.item.needed)*100}
+                        />
+                {/* <Image source={{uri:`${imgPath}`}} style={styles.imgWrapper} resizeMode='stretch' /> */}
+                </View>
+                <View style={styles.btnGrp}>
+                    <Image source={{uri:'https://firebasestorage.googleapis.com/v0/b/odin-test-db-147621.appspot.com/o/icon1.png?alt=media&token=32edfcf1-7d8d-4853-913c-5002562d0eac'}} style={styles.imgWrapper} resizeMode='cover' />
+                </View>
             </View>);
     }
     //Desired screen view method in back page
     _renderBack() {
         return (
-            <View style={{ backgroundColor: 'blue', flex: 1, height: 100 }}>
-                <Text>{this.props.title}</Text>
+            <View style={{ backgroundColor: '#e0e0e0', flex: 1, height: 120, justifyContent: 'center', alignItems: 'center', paddingLeft: 15, paddingRight: 15, }}>
+                <Text style={{fontFamily: 'montserrat'}}>{this.props.item.desc}</Text>
             </View>);
     }
 }
@@ -44,24 +49,45 @@ class AchieveItem extends Component {
 const styles = {
     face: {
         flex: 1,
-        backgroundColor: 'red'
+        backgroundColor: '#fff'
     },
     back: {
         flex: 1,
         backgroundColor: 'blue'
     },
     cardWrapper: {
-        height: 70,
-        width: 200,
-        margin: 5,
-        marginLeft: 10
+        marginLeft: 15,
+        marginRight: 15,
+        marginTop: 10,
     },
     flipWrapper: {
         flex: 1,
     },
     imgWrapper: {
-        height: 30,
-        width: 30
+        height: 110,
+        width: 90
+    },
+    todoDesc: {
+        flex: 2,
+        justifyContent: 'center',
+        padding: 15,
+    },
+    btnGrp: {
+        flexDirection: 'row',
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#fff',
+    },
+    textTitle: {
+        fontFamily: 'montserratsemi',
+        fontSize: 18,
+        color: '#3e3e78'
+    },
+    text: {
+        fontFamily: 'montserratlight',
+        fontSize: 16,
+        color: 'gray'
     }
 }
 

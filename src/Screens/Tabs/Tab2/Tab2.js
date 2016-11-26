@@ -29,7 +29,8 @@ class Tab2 extends Component {
                     title: child.val().title,
                     count: child.val().count,
                     needed: child.val().needed,
-                    imgURL: child.val().imgURL
+                    imgURL: child.val().imgURL,
+                    desc: child.val().desc
                 });
             });
             this.setState({
@@ -50,8 +51,6 @@ class Tab2 extends Component {
                         renderRow={this.renderItem.bind(this)}
                         enableEmptySections
                         />
-
-                   
                 </ScrollView>
 
             </View>
@@ -63,14 +62,11 @@ class Tab2 extends Component {
 const styles = {
     container: {
         flex: 1,
-        paddingTop:65,
-        justifyContent: 'center',
-        alignItems: 'center',
+        paddingTop:45,
+        backgroundColor: '#3e3e78'
     },
     listWrapper: {
         padding: 20,
-        width: 320,
-        elevation: 5,
 
     }
 }

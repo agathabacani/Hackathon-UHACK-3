@@ -47,7 +47,9 @@ const styles = {
     card: {
         flexDirection: 'row',
         backgroundColor: '#f6f6f6',
-        margin:15,
+        marginTop: 10,
+        marginLeft: 15,
+        marginRight: 15,
         justifyContent: 'center',
     },
     btnGrp: {

@@ -90,7 +90,7 @@ class Tab3 extends Component {
                         dataSource={this.state.completedDataSource}
                         renderRow={this.renderCompletedItem.bind(this)}
                         enableEmptySections
-                        style={{ marginTop: 0, }}
+                        style={{ marginTop: 0, paddingBottom: 70, }}
                         />
                 </ScrollView>
 
