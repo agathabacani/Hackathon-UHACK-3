@@ -50,7 +50,7 @@ export default class App extends Component {
 
                                 {/*TAB SET 1*/}
                                 <Scene key="FirstTab" title="Tab 1" tabID="1" iconType="rowing" icon={TabIcon}>
-                                    <Scene key="Tab1" component={Tab1} title="Tab: 1" onRight={() => alert("Right button")} rightTitle="Right" initial />
+                                    <Scene key="Tab1" component={Tab1} title="" onRight={() => alert("Right button")} rightTitle="Right" initial />
                                     <Scene key="Tab1_1" component={Tab1_1} title="Tab: 1.1" />
                                 </Scene>
 
