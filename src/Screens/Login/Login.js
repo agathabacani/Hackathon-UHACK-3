@@ -82,6 +82,30 @@ class Login extends Component {
         }, 1000);
 
     }
+    createdAchievements() {
+        firebase.database().ref('/achievements/cleaner').set({
+            Apprentice: {
+                progress: 0
+            },
+            Adept: {
+                progress: 0
+            },
+            Master: {
+                progress: 0
+            }
+        })
+        firebase.database().ref('/achievements/general').set({
+            Apprentice: {
+                progress: 0
+            },
+            Adept: {
+                progress: 0
+            },
+            Master: {
+                progress: 0
+            }
+        })
+    }
     render() {
         const { container, regTextStyle, btnWrapper, errorMsgWrapper } = styles;
         const { isError, rememberMe } = this.state;
@@ -101,7 +125,7 @@ class Login extends Component {
                         onPress={() => this.clickChkBox(rememberMe)}
                         checked={rememberMe}
                         />
-                    <Text>Not yet a member? Click <Text onPress={() => Actions.register()} style={regTextStyle}>HERE</Text></Text>
+                    <Text>Not yet a member? Click <Text onPress={() => this.createdAchievements()} style={regTextStyle}>HERE</Text></Text>
                 </Card>
                 <Text style={{ alignSelf: 'center' }} onPress={() => Actions.mainEntryPoint()}>FORWARD</Text>
             </View>

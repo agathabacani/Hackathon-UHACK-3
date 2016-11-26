@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { Text, View, Image } from 'react-native';
 import FlipCard from 'react-native-flip-card-view';
+import PBC from 'react-native-progress-bar-classic'
+
 class AchieveItem extends Component {
+
+
     render() {
-        console.log(this.props.imgPath)
+        console.log(this.props)
         return (
             <View style={styles.cardWrapper}>
                 <FlipCard style={{ flex: 1 }}
@@ -18,9 +22,13 @@ class AchieveItem extends Component {
     _renderFront() {
         return (
             <View style={{ backgroundColor: 'red', flex: 1, height: 100 }}>
-                <Text>{this.props.title}</Text>
-                <Text>{this.props.progress}</Text>
-                <Image source={this.props.imgPath} style={styles.imgWrapper} resizeMode='stretch'/>
+                <Text>{this.props.item.title}</Text>
+                <Text>{this.props.item.progress}</Text>
+                <PBC
+                    valueStyle={'default'}
+                    progress={this.props.item.progress}
+                    />
+                <Image source={this.props.imgPath} style={styles.imgWrapper} resizeMode='stretch' />
             </View>);
     }
     //Desired screen view method in back page

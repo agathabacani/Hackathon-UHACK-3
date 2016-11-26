@@ -13,3 +13,4 @@ export * from './Common/AnimButton';
 //Pop up modals
 export * from './FullScreenModal';
 export * from './SmallModal';
+export * from './ChallengeModal';

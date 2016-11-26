@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import firebase from 'firebase';
 import { Scene, Router, Actions, Modal } from 'react-native-router-flux';
 import { Login, Settings, Profile, Registration } from './Screens';
-import { FullScreenModal, NavigationDrawer, TabIcon, SmallModal } from './Components';
+import { FullScreenModal, NavigationDrawer, TabIcon, SmallModal, ChallengeModal } from './Components';
 import { Tab1, Tab1_1, Tab2, Tab2_1, Tab3, Tab3_1 } from './Screens/Tabs/';
 import OneSignal from 'react-native-onesignal';
 import Toast from 'react-native-root-toast';
@@ -25,11 +25,11 @@ export default class App extends Component {
     }
     handleNotification(message, data, isActive) {
         if (isActive) {
-           alert('This is number 1')
+           Actions.challengeModal({ task: data.task, url: data.url, title: data.title, category: data.taskCategory });
         } else {
             //When not in app and user click this is fired
             //App opens at Root, then Function triggered
-            alert('This is number 2')
+           Actions.challengeModal({ task: data.task, url: data.url, title: data.title, category: data.taskCategory });
         }
     }
     render() {
@@ -50,7 +50,7 @@ export default class App extends Component {
 
                                 {/*TAB SET 1*/}
                                 <Scene key="FirstTab" title="Tab 1" tabID="1" iconType="rowing" icon={TabIcon}>
-                                    <Scene key="Tab1" component={Tab1} title="Tab: 1" onRight={() => alert("Right button")} rightTitle="Right" />
+                                    <Scene key="Tab1" component={Tab1} title="Tab: 1" onRight={() => alert("Right button")} rightTitle="Right" initial />
                                     <Scene key="Tab1_1" component={Tab1_1} title="Tab: 1.1" />
                                 </Scene>
 
@@ -77,6 +77,7 @@ export default class App extends Component {
                         {/*MODAL POP-UP ERROR*/}
                         <Scene key="ModalError" component={FullScreenModal} title="Modal Error" direction="vertical" hideNavBar />
                     </Scene>
+                     <Scene key="challengeModal" component={ChallengeModal} />
                     <Scene key="error" component={SmallModal} />
                 </Scene>
             </Router>
