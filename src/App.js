@@ -68,7 +68,8 @@ export default class App extends Component {
 
                                 {/*SIDE DRAW LINKS*/}
                                 <Scene key="settingsScreen" component={Settings} title="Settings" hideTabBar />
-                                <Scene key="profileScreen" component={Profile} title="Profile" hideTabBar />
+                                <Scene key="profileScreen" component={Profile} title="Profiles" hideTabBar />
+
 
                             </Scene>
                         </Scene>
