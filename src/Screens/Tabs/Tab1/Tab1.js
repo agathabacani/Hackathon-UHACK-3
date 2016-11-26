@@ -253,8 +253,6 @@ const styles = {
     }
 }
 
-<<<<<<< HEAD
-export {Tab1};
-=======
+
 export { Tab1 };
->>>>>>> 1600b22f78e6afb7a4156aec1c696ce48b699549
+

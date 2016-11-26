@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, ListView } from 'react-native';
+import { Text, View, ListView, ScrollView } from 'react-native';
 import firebase from 'firebase';
 import { List, ListItem } from 'react-native-elements'
 import list from '../../../Data/achievementList';
@@ -14,7 +14,7 @@ class Tab2 extends Component {
             })
         }
         const {uid} = firebase.auth().currentUser;
-        this.achievementsRef = firebase.database().ref('achievements/cleaner');
+        this.achievementsRef = firebase.database().ref('achievements/');
     }
     componentDidMount() {
         this.listenForAchievements(this.achievementsRef);
@@ -23,9 +23,12 @@ class Tab2 extends Component {
         achievementsRef.on('value', (snap) => {
             const achievements = [];
             snap.forEach((child) => {
+                console.log(child.val())
                 achievements.push({
-                    progress: child.val().progress,
-                    title: child.val().title
+                    completed: child.val().completed,
+                    title: child.val().title,
+                    count: child.val().count,
+                    needed: child.val().needed
                 });
             });
             this.setState({
@@ -40,7 +43,7 @@ class Tab2 extends Component {
         const {container, listWrapper} = styles;
         return (
             <View style={container}>
-                <View style={listWrapper}>
+                <ScrollView style={listWrapper}>
                     <ListView
                         dataSource={this.state.dataSource}
                         renderRow={this.renderItem.bind(this)}
@@ -48,7 +51,7 @@ class Tab2 extends Component {
                         />
 
                    
-                </View>
+                </ScrollView>
 
             </View>
 
@@ -59,6 +62,7 @@ class Tab2 extends Component {
 const styles = {
     container: {
         flex: 1,
+        paddingTop:65,
         justifyContent: 'center',
         alignItems: 'center',
     },

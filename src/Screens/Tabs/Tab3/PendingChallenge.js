@@ -12,6 +12,10 @@ export default class extends Component {
 
         firebase.database().ref(`users/${uid}/completedChallenge/${challengeKey}`).set({
             completedAt: new Date().toDateString(),
+            status: 'pending',
+            acceptedOn: this.props.item.acceptedOn,
+            category: this.props.item.category,
+            task: this.props.item.task,
             text: 'Filler Text'
         });
 

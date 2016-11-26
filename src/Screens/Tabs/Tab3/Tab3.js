@@ -30,7 +30,12 @@ class Tab3 extends Component {
             const challenges = [];
             snap.forEach((child) => {
                 challenges.push({
-                    key: child.key
+                    key: child.key,
+                    acceptedOn: child.val().acceptedOn,
+                    category: child.val().category,
+                    status: child.val().status,
+                    task: child.val().task,
+                    title: child.val().title
                 });
             });
             this.setState({
@@ -39,7 +44,7 @@ class Tab3 extends Component {
         })
     }
     listenForCompleted(completedChallengeRef) {
-        completedChallengeRef.on('value', (snap) => {
+        completedChallengeRef.orderByChild('status').equalTo('completed').on('value', (snap) => {
             const completed = [];
             snap.forEach((child) => {
                 completed.push({
