@@ -6,27 +6,34 @@ import { Actions } from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export default class extends Component {
-        completedChallenge() {
+    completedChallenge() {
         const { uid } = firebase.auth().currentUser;
         const challengeKey = this.props.item.key;
+        const challCat = this.props.item.category;
 
         firebase.database().ref(`users/${uid}/completedChallenge/${challengeKey}`).set({
             completedAt: new Date().toDateString(),
-<<<<<<< HEAD
-            text: 'Filler Text',
-            title: child.val().title,
-=======
             status: 'pending',
             acceptedOn: this.props.item.acceptedOn,
             category: this.props.item.category,
             task: this.props.item.task,
-            text: 'Filler Text'
->>>>>>> 0f50a5a6db71553ec1924e448a35c9a512c52cb4
         });
+
+        firebase.database().ref(`achievements/${challCat}`).once('value').then((snap) => {
+            var currCount = snap.val().count;
+            var newBalance = parseInt(currCount) + 1;
+            const newData = {
+                count: newBalance,
+            };
+
+            firebase.database().ref(`achievements/${challCat}`).update(newData);
+        })
+
 
         firebase.database().ref(`users/${uid}/pendingChallenge/${challengeKey}`).remove();
     }
     render() {
+        console.log(this.props.item.key)
         return (
             <View>
                 <View style={styles.card}>
@@ -52,7 +59,7 @@ const styles = {
     card: {
         flexDirection: 'row',
         backgroundColor: '#f6f6f6',
-        margin:15,
+        margin: 15,
         justifyContent: 'center',
     },
     btnGrp: {

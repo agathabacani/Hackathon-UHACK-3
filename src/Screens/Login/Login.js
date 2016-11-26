@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { CheckBox } from 'react-native-elements';
 import firebase from 'firebase';
-import { Actions } from 'react-native-router-flux';
+import { Actions, ActionConst } from 'react-native-router-flux';
 import { Input, Button, Card, Spinner } from '../../Components/';
 
 class Login extends Component {
@@ -43,7 +43,7 @@ class Login extends Component {
             if (true) {
                 const {txtEmail, txtPassword} = this.state;
                 firebase.auth().signInWithEmailAndPassword(txtEmail, txtPassword)
-                    .then(() => Actions.mainEntryPoint())
+                    .then(() => Actions.mainEntryPoint({type: ActionConst.RESET}))
                     .catch((error) => {
 
                         switch (error.code) {
