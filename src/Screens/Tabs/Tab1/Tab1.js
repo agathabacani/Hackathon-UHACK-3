@@ -15,7 +15,7 @@ import Modal from 'react-native-animated-modal';
 import Slider from 'react-native-slider';
 
 
-export default class Tab1 extends Component {
+class Tab1 extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -163,7 +163,6 @@ export default class Tab1 extends Component {
                     style={styles.dropZone2}>
                     <Text style={styles.text}>{this.state.savings2}</Text>
                 </View>
-                {this.renderDraggable()}
                 {/*DropZones*/}
                 <View style={{ marginTop: 29, marginLeft: 50, position: 'absolute' }}>
                     <Chart />
@@ -233,7 +232,6 @@ const styles = {
         left: Window.width / 2 - CIRCLE_RADIUS,
     },
     circle: {
-        backgroundColor: '#1abc9c',
         width: CIRCLE_RADIUS * 2,
         height: CIRCLE_RADIUS * 2,
         borderRadius: CIRCLE_RADIUS,
@@ -254,3 +252,5 @@ const styles = {
         borderRadius: 4,
     }
 }
+
+export { Tab1 };
