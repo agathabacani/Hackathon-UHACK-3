@@ -55,8 +55,8 @@ export default class App extends Component {
                                 </Scene>
 
                                 {/*TAB SET 2*/}
-                                <Scene key="SecondTab" title="Tab 2" tabID="2" icon={TabIcon}>
-                                    <Scene key="Tab2" component={Tab2} title="Tab: 2" />
+                                <Scene key="SecondTab" title="Achievements" tabID="2" icon={TabIcon}>
+                                    <Scene key="Tab2" component={Tab2} title="Achievements" />
                                     <Scene key="Tab2_1" component={Tab2_1} title="Tab: 2.1" />
                                 </Scene>
 
