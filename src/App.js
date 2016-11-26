@@ -1,10 +1,37 @@
 import React, { Component } from 'react';
+import firebase from 'firebase';
 import { Scene, Router, Actions, Modal } from 'react-native-router-flux';
 import { Login, Settings, Profile, Registration } from './Screens';
 import { FullScreenModal, NavigationDrawer, TabIcon, SmallModal } from './Components';
 import { Tab1, Tab1_1, Tab2, Tab2_1, Tab3, Tab3_1 } from './Screens/Tabs/';
+import OneSignal from 'react-native-onesignal';
+import Toast from 'react-native-root-toast';
+
+const config = {
+    apiKey: "AIzaSyBXeDE1O-sI91mXxrUonXRSRSmWtrv7p8U",
+    authDomain: "odin-test-db-147621.firebaseapp.com",
+    databaseURL: "https://odin-test-db-147621.firebaseio.com",
+    storageBucket: "odin-test-db-147621.appspot.com",
+    messagingSenderId: "675151496262"
+};
+firebase.initializeApp(config);
 
 export default class App extends Component {
+    componentDidMount() {
+        OneSignal.enableInAppAlertNotification(true);
+        OneSignal.configure({
+            onNotificationOpened: this.handleNotification
+        });
+    }
+    handleNotification(message, data, isActive) {
+        if (isActive) {
+           alert('This is number 1')
+        } else {
+            //When not in app and user click this is fired
+            //App opens at Root, then Function triggered
+            alert('This is number 2')
+        }
+    }
     render() {
         return (
             <Router navigationBarStyle={{ elevation: 5 }}>
@@ -23,7 +50,7 @@ export default class App extends Component {
 
                                 {/*TAB SET 1*/}
                                 <Scene key="FirstTab" title="Tab 1" tabID="1" iconType="rowing" icon={TabIcon}>
-                                    <Scene key="Tab1" component={Tab1} title="Tab: 1"  onRight={()=>alert("Right button")} rightTitle="Right"/>
+                                    <Scene key="Tab1" component={Tab1} title="Tab: 1" onRight={() => alert("Right button")} rightTitle="Right" />
                                     <Scene key="Tab1_1" component={Tab1_1} title="Tab: 1.1" />
                                 </Scene>
 

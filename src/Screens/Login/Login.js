@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { CheckBox } from 'react-native-elements';
+import firebase from 'firebase';
 import { Actions } from 'react-native-router-flux';
 import { Input, Button, Card, Spinner } from '../../Components/';
 
@@ -40,12 +41,43 @@ class Login extends Component {
 
         setTimeout(() => {
             if (true) {
-                this.setState({
-                    isError: true,
-                    isFormLoading: false,
-                    errMsg: "ERROR"
-                });
-               alert('Click on FORWARD to bypass login');
+                const {txtEmail, txtPassword} = this.state;
+                firebase.auth().signInWithEmailAndPassword(txtEmail, txtPassword)
+                    .then(() => Actions.mainEntryPoint())
+                    .catch((error) => {
+
+                        switch (error.code) {
+
+                            case 'auth/invalid-email':
+                                this.setState({
+                                    errorMessage: 'This E-mail address is not valid!',
+                                    isFormLoading: false,
+                                    isError: true
+                                });
+                                break;
+                            case 'auth/user-disabled':
+                                this.setState({
+                                    errorMessage: 'This E-mail address has been disabled!',
+                                    isFormLoading: false,
+                                    isError: true
+                                });
+                                break;
+                            case 'auth/user-not-found':
+                                this.setState({
+                                    errorMessage: 'This E-mail has not been found!',
+                                    isFormLoading: false,
+                                    isError: true
+                                });
+                                break;
+                            case 'auth/wrong-password':
+                                this.setState({
+                                    errorMessage: 'You have entered an incorrect password!',
+                                    isFormLoading: false,
+                                    isError: true
+                                });
+                                break;
+                        }
+                    });
             }
         }, 1000);
 
@@ -71,7 +103,7 @@ class Login extends Component {
                         />
                     <Text>Not yet a member? Click <Text onPress={() => Actions.register()} style={regTextStyle}>HERE</Text></Text>
                 </Card>
-                <Text style={{alignSelf: 'center'}} onPress={() => Actions.mainEntryPoint()}>FORWARD</Text>
+                <Text style={{ alignSelf: 'center' }} onPress={() => Actions.mainEntryPoint()}>FORWARD</Text>
             </View>
         );
     }
