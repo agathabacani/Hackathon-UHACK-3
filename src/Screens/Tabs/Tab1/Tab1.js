@@ -15,6 +15,7 @@ import Modal from 'react-native-animated-modal';
 import Slider from 'react-native-slider';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Pulse from 'react-native-pulse';
+import firebase from 'firebase';
 
 class Tab1 extends Component {
     constructor(props) {
@@ -34,14 +35,14 @@ class Tab1 extends Component {
 
             savings1: 500,
             savings2: 120,
-            moneyToSave: 1000,
             moneyInput: 0,
 
             pulseMoneyVisible: false,
 
             iconChosen: 6,
-        };
 
+            pendingBalance: ''
+        };
 
         this.panResponder = PanResponder.create({
             onStartShouldSetPanResponder: () => true,
@@ -85,7 +86,7 @@ class Tab1 extends Component {
                         {...this.panResponder.panHandlers}
                         source={require('../../../Assets/img/coin.png')}
                         style={[this.state.pan.getLayout(), styles.circle]}>
-                        <Text style={styles.text}>{this.state.moneyToSave}</Text>
+                        <Text style={styles.text}>{this.state.pendingBalance}</Text>
                     </Animated.Image>
                 </View>
             );
@@ -127,14 +128,19 @@ class Tab1 extends Component {
 
     renderModalContent() {
         return (
-            <View style={styles.modalContent}>
+            <View style={[styles.modalContent]}>
+            <View style={{ backgroundColor: '#ffb700', flex: 1, padding: 10, height: 70, justifyContent: 'center' }}>
+                    <Text style={{ fontFamily: 'montserratsemi', color: 'white', fontSize: 23, }}>Save How Much?</Text>
+                </View>
+            <View style={{ backgroundColor: '#fff', padding: 10, }}>
                 <Slider
-                    minimumValue={1}
+                    minimumValue={0}
                     maximumValue={100}
                     onValueChange={(moneyInput) => this.setState({ moneyInput })}
                     value={parseInt(this.state.moneyInput)}
                     step={5} />
-                <Text>{this.state.moneyInput}</Text>
+                <Text style={{fontFamily: 'montserratlight'}}>{this.state.moneyInput}</Text>
+            </View>
                 {this._renderButton('Save', () => this.setState({ isModalVisible: false }))}
             </View>
         );
@@ -198,13 +204,13 @@ class Tab1 extends Component {
         if (this.state.isInSavings1) {
             this.setState({
                 savings1: parseInt(this.state.savings1) + parseInt(this.state.moneyInput),
-                moneyToSave: parseInt(this.state.moneyToSave) - parseInt(this.state.moneyInput),
+                pendingBalance: parseInt(this.state.pendingBalance) - parseInt(this.state.moneyInput),
                 isInSavings1: false,
             });
         } else {
             this.setState({
                 savings2: parseInt(this.state.savings2) + parseInt(this.state.moneyInput),
-                moneyToSave: parseInt(this.state.moneyToSave) - parseInt(this.state.moneyInput),
+                pendingBalance: parseInt(this.state.pendingBalance) - parseInt(this.state.moneyInput),
                 isInSavings2: false,
             });
         }
@@ -215,8 +221,6 @@ class Tab1 extends Component {
     }
 
     addGoal() {
-        this.renderIcon();
-
         Animated.spring(
             this.state.pan,
             { toValue: { x: 0, y: 0 } }
@@ -241,9 +245,21 @@ class Tab1 extends Component {
         }
     }
 
+    componentDidMount() {
+        const {uid} = firebase.auth().currentUser;
+        firebase.database().ref(`/users/${uid}`).on('value', (snap) => {
+            this.setState({
+                pendingBalance: snap.val().bankBalance.pendingBalance
+            });
+        });
+    }
+
     render() {
         return (
             <View style={styles.mainContainer}>
+                <View style={{position: 'absolute', top: 20, right: 20, flexDirection: 'row', flex: 1,}}>
+                    <Text style={{fontFamily: 'montserratlight', fontSize: 16, color: '#fff', }}>Points: <Text style={{fontFamily: 'montserratsemi', color: '#ffb700'}}>10,500</Text></Text>
+                </View>
                 <View style={styles.goalsWrapper}>
                     <Image
                         source={require('../../../Assets/img/goals.png')}
@@ -299,8 +315,7 @@ class Tab1 extends Component {
                     {this.renderModalContent()}
                 </Modal>
 
-                <Modal isVisible={this.state.isModalVisible2}
-                    onModalHide={() => this.addGoal()}>
+                <Modal isVisible={this.state.isModalVisible2}>
                     {this.renderModalContent2()}
                 </Modal>
             </View>
