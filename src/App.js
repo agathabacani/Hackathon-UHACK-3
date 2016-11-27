@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
 import { Scene, Router, Actions, Modal } from 'react-native-router-flux';
-import { Login, Settings, Profile, Registration, Shop } from './Screens';
+import { Login, Settings, Profile, Registration, Shop, Achievements } from './Screens';
 import { FullScreenModal, NavigationDrawer, TabIcon, SmallModal, ChallengeModal } from './Components';
 import { Tab1, Tab1_1, Tab2, Tab2_1, Tab3, Tab3_1, Tab4, Tab4_1 } from './Screens/Tabs/';
 import OneSignal from 'react-native-onesignal';
@@ -48,12 +48,8 @@ export default class App extends Component {
                         <Scene key="mainEntryPoint" component={NavigationDrawer} animation="fade" >
                             <Scene key="tabWrapper" tabs tabBarStyle={styles.tabBarStyle} tabBarIconContainerStyle={styles.tabIconStyle} pressOpacity={0.7}>
 
-<<<<<<< HEAD
                                 {/*TAB SET 1*/}
                                 <Scene key="FirstTab" title="Home" tabID="1" iconType="rowing" icon={TabIcon}>
-=======
-                                {/*TAB SET 1*/}<Scene key="FirstTab" title="Home" tabID="1" iconType="rowing" icon={TabIcon}>
->>>>>>> a558a609e0722aa3f3ae4997576a0f5f6da75292
                                     <Scene key="Tab1" component={Tab1} title="" initial drawerImage={require('./Assets/img/menu_burger.png')} navigationBarStyle={{ backgroundColor: 'transparent', borderBottomColor:'transparent', elevation: 0, }}/>
                                     <Scene key="Tab1_1" component={Tab1_1} title="Tab: 1.1" />
                                 </Scene>
@@ -63,26 +59,18 @@ export default class App extends Component {
                                     <Scene key="Tab2" component={Tab2} title="" titleStyle={{ color: 'white', fontFamily: 'montserrat' }} drawerImage={require('./Assets/img/menu_burger.png')} navigationBarStyle={{ backgroundColor: 'transparent', borderBottomColor: 'transparent', elevation: 0 }} />
                                     <Scene key="Tab2_1" component={Tab2_1} title="Tab: 2.1" />
                                 </Scene>
-<<<<<<< HEAD
+
 
                                 {/*TAB SET 3*/}
-                                <Scene key="ThirdTab" title="Challenges" tabID="3" icon={TabIcon}>
-                                    <Scene key="Tab3" component={Tab3} title="Challenges" titleStyle={{color: 'white', fontFamily: 'montserrat'}} drawerImage={require('./Assets/img/menu_burger.png')} navigationBarStyle={{ backgroundColor: 'transparent', borderBottomColor:'transparent', elevation: 0}}/>
 
-=======
                                 <Scene key="ThirdTab" title="Challenges" tabID="3" icon={TabIcon}>
                                     <Scene key="Tab3" component={Tab3} title="" titleStyle={{color: 'white', fontFamily: 'montserrat'}} drawerImage={require('./Assets/img/menu_burger.png')} navigationBarStyle={{ backgroundColor: 'transparent', borderBottomColor:'transparent', elevation: 0}}/>
->>>>>>> a558a609e0722aa3f3ae4997576a0f5f6da75292
                                     <Scene key="Tab3_1" component={Tab3_1} title="Tab: 3.1" />
                                 </Scene>
-                                <Scene key="FourthTab" title="Tab 4" tabID="4" icon={TabIcon}>
-                                    <Scene key="Tab4" component={Tab4} title="" titleStyle={{ color: 'white', fontFamily: 'montserrat' }} drawerImage={require('./Assets/img/menu_burger.png')} navigationBarStyle={{ backgroundColor: 'transparent', borderBottomColor: 'transparent', elevation: 0 }} />
-                                    <Scene key="Tab4_1" component={Tab4_1} title="Tab: 4.1" />
-                                </Scene>
-
+                                
                                 {/*SIDE DRAW LINKS*/}
                                 <Scene key="settingsScreen" component={Settings} title="Settings" hideTabBar />
-
+                                <Scene key="achivementScreen" component={Achievements} title="Achievements" hideTabBar />
                                 <Scene key="profileScreen" component={Profile} title="Profiles" hideTabBar />
                                 <Scene key="Shop" component={Shop} title="Shop" hideTabBar />
 
