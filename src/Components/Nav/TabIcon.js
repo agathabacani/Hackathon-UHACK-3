@@ -14,7 +14,7 @@ iconType = function(x) {
         return "md-home";
     }
     else if(x == 2) {
-        return "md-trophy";
+        return "md-code";
     }
     else if(x == 3){
         return "md-alert";
