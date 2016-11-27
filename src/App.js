@@ -67,15 +67,12 @@ export default class App extends Component {
                                     <Scene key="Tab3" component={Tab3} title="" titleStyle={{color: 'white', fontFamily: 'montserrat'}} drawerImage={require('./Assets/img/menu_burger.png')} navigationBarStyle={{ backgroundColor: 'transparent', borderBottomColor:'transparent', elevation: 0}}/>
                                     <Scene key="Tab3_1" component={Tab3_1} title="Tab: 3.1" />
                                 </Scene>
-<<<<<<< HEAD
+
                                 <Scene key="FourthTab" title="My Store" tabID="4" icon={TabIcon}>
                                     <Scene key="Tab4" component={Tab4} title="" titleStyle={{ color: 'white', fontFamily: 'montserrat' }} drawerImage={require('./Assets/img/menu_burger.png')} navigationBarStyle={{ backgroundColor: 'transparent', borderBottomColor: 'transparent', elevation: 0 }} />
                                     <Scene key="Tab4_1" component={Tab4_1} title="Tab: 4.1" />
                                 </Scene>
-
-=======
                                 
->>>>>>> de98149690510e790a040bdbe75eef1ebc9cfb54
                                 {/*SIDE DRAW LINKS*/}
                                 <Scene key="settingsScreen" component={Settings} title="Settings" hideTabBar />
                                 <Scene key="achivementScreen" component={Achievements} title="Achievements" hideTabBar />
