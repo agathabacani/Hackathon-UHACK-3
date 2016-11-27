@@ -6,7 +6,7 @@ import {
     ScrollView,
     TouchableOpacity
 } from 'react-native';
-import PBC from 'react-native-progress-bar-classic'
+import PBC from 'react-native-progress-bar-classic';
 
 
 class Tab4 extends Component {

@@ -55,8 +55,8 @@ export default class App extends Component {
                                 </Scene>
 
                                 {/*TAB SET 2*/}
-                                <Scene key="SecondTab" title="Trophies" tabID="2" icon={TabIcon} >
-                                    <Scene key="Tab2" component={Tab2} title="" titleStyle={{ color: 'white', fontFamily: 'montserrat' }} drawerImage={require('./Assets/img/menu_burger.png')} navigationBarStyle={{ backgroundColor: 'transparent', borderBottomColor: 'transparent', elevation: 0 }} />
+                                <Scene key="SecondTab" title="Stats" tabID="2" icon={TabIcon} >
+                                    <Scene key="Tab2" component={Tab2} title="" titleStyle={{ color: 'white', fontFamily: 'montserrat' }} drawerImage={require('./Assets/img/menu_burger.png')} navigationBarStyle={{ backgroundColor: '#3e3e78', borderBottomColor: 'transparent', elevation: 0 }} />
                                     <Scene key="Tab2_1" component={Tab2_1} title="Tab: 2.1" />
                                 </Scene>
 
@@ -72,7 +72,6 @@ export default class App extends Component {
                                     <Scene key="Tab4" component={Tab4} title="" titleStyle={{ color: 'white', fontFamily: 'montserrat' }} drawerImage={require('./Assets/img/menu_burger.png')} navigationBarStyle={{ backgroundColor: 'transparent', borderBottomColor: 'transparent', elevation: 0 }} />
                                     <Scene key="Tab4_1" component={Tab4_1} title="Tab: 4.1" />
                                 </Scene>
-
                                 {/*SIDE DRAW LINKS*/}
                                 <Scene key="settingsScreen" component={Settings} title="Settings" hideTabBar />
                                 <Scene key="achivementScreen" component={Achievements} title="Achievements" hideTabBar />
