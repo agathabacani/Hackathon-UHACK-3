@@ -74,8 +74,8 @@ export default class App extends Component {
                                 </Scene>
                                 {/*SIDE DRAW LINKS*/}
                                 <Scene key="settingsScreen" component={Settings} title="Settings" hideTabBar />
-                                <Scene key="achivementScreen" component={Achievements} title="Achievements" hideTabBar />
-                                <Scene key="profileScreen" component={Profile} title="Profiles" hideTabBar />
+                                <Scene key="achivementScreen" component={Achievements} title="" titleStyle={{color: 'white', fontFamily: 'montserrat'}}  hideTabBar drawerImage={require('./Assets/img/menu_burger.png')} navigationBarStyle={{ backgroundColor: 'transparent', borderBottomColor: 'transparent', elevation: 0 }}/>
+                                <Scene key="profileScreen" component={Profile} title="Profile" titleStyle={{color: 'white', fontFamily: 'montserrat'}} hideTabBar drawerImage={require('./Assets/img/menu_burger.png')} navigationBarStyle={{ backgroundColor: 'transparent', borderBottomColor:'transparent', elevation: 0, }}/>
                                 <Scene key="Shop" component={Shop} title="Shop" hideTabBar />
 
 
