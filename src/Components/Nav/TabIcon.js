@@ -4,8 +4,8 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 const TabIcon = (props) => (
     <View style={{}}>
-        <Icon name={iconType(props.tabID)} size={20} color="white" style={{ color: props.selected ? '#fc2632' : 'white' }} />
-        <Text style={{ color: props.selected ? 'red' : 'white' }}>{props.title}</Text>
+        <Icon name={iconType(props.tabID)} size={20} color="white" style={{ alignSelf:'center', color: props.selected ? '#ffb700' : 'white' }} />
+        <Text style={{ color: props.selected ? '#ffb700' : 'white', fontFamily: 'montserrat' }}>{props.title}</Text>
     </View>
 );
 
@@ -14,10 +14,10 @@ iconType = function(x) {
         return "md-home";
     }
     else if(x == 2) {
-        return "md-call";
+        return "md-trophy";
     }
     else if(x == 3){
-        return "ios-paper";
+        return "md-alert";
     }
     else {
         return "ios-paper";

@@ -8,7 +8,7 @@ const Button = (props) => {
             onPress={props.onPress}
             title={props.title}
             fontWeight={props.fontWeight || '600'}
-            backgroundColor={props.backgroundColor || 'black'}
+            backgroundColor={props.backgroundColor || '#ffb700'}
             borderRadius={props.borderRadius || 5}
             color={props.color || 'white'}
             underlayColor={props.underlayColor || 'transparent'}

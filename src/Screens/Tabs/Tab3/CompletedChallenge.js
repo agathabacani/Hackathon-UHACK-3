@@ -14,7 +14,7 @@ export default class extends Component {
                         <Text style={styles.text}>{this.props.item.title}</Text>
                     </View>
                     <View style={styles.btnGrp}>
-                        <Text style={[styles.text, {color: 'white'}]}>{this.props.item.value}</Text>
+                        <Text style={[styles.text, {color: 'white'}]}>P {this.props.item.value}</Text>
                     </View>
                 </View>
             </View>
