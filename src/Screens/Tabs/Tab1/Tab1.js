@@ -308,6 +308,13 @@ class Tab1 extends Component {
                         resizeMode='cover'
                         />
                 </View>
+                <View style={{ position: 'absolute', bottom: 0, height: 250, right: 10, zIndex: -2 }}>
+                    <Image
+                        source={require('../../../Assets/img/vault.png')}
+                        resizeMode='cover'
+                        style={{height:70, width: 70}}
+                        />
+                </View>
                 {this.renderDraggable()}
                 {this.renderMoneyPulse()}
                 <Modal isVisible={this.state.isModalVisible}

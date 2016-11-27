@@ -12,7 +12,7 @@ import PBC from 'react-native-progress-bar-classic';
 class Tab4 extends Component {
     render() {
         return (
-            <ScrollView style={{ flex: 1, backgroundColor: '#f6f6f6', marginBottom: 80,}}>
+            <ScrollView style={{ flex: 1, backgroundColor: '#f6f6f6', marginBottom: 50,}}>
                 <View style={{ position: 'absolute', flexDirection: 'row', flex: 1, top: 20, right: 20, zIndex: 5 }}>
                     <Text style={{ fontFamily: 'montserratlight', fontSize: 16, color: '#fff', }}>Points: <Text style={{ fontFamily: 'montserratsemi', color: '#ffb700' }}>10,500</Text></Text>
                 </View>
@@ -82,7 +82,7 @@ class Tab4 extends Component {
                             />
                     </View>
                 </View>
-                <View style={{ flexDirection: 'row', marginTop: 15, justifyContent: 'space-around' }}>
+                <View style={{ flexDirection: 'row', marginTop: 15, justifyContent: 'space-around', paddingBottom: 10 }}>
                     <View style={{ height: 80, width: 80, }}>
                         <Image
                             source={require('../../../Assets/img/ing4.png')}
