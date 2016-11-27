@@ -6,6 +6,7 @@ import { FullScreenModal, NavigationDrawer, TabIcon, SmallModal, ChallengeModal 
 import { Tab1, Tab1_1, Tab2, Tab2_1, Tab3, Tab3_1, Tab4, Tab4_1 } from './Screens/Tabs/';
 import OneSignal from 'react-native-onesignal';
 import Toast from 'react-native-root-toast';
+console.ignoredYellowBox;
 
 const config = {
     apiKey: "AIzaSyBXeDE1O-sI91mXxrUonXRSRSmWtrv7p8U",
@@ -18,6 +19,7 @@ firebase.initializeApp(config);
 
 export default class App extends Component {
     componentDidMount() {
+        
         OneSignal.enableInAppAlertNotification(false);
         OneSignal.configure({
             onNotificationOpened: this.handleNotification

@@ -264,8 +264,9 @@ class Tab1 extends Component {
                 savings2: snap.val().bankBalance.item2
             });
         });
+      
     }
-
+   
     render() {
         return (
             <View style={styles.mainContainer}>

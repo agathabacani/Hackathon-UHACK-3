@@ -105,15 +105,18 @@ const styles = {
     yesBtn: {
         flex: 1,
         alignItems: 'center',
-        margin: 5
+        margin: 5,
     },
     noBtn: {
         flex: 1,
         alignItems: 'center',
-        margin: 5
+        margin: 5,
     },
      challengeText: {
-         fontWeight: '600'
+         fontWeight: '600',
+         alignSelf: 'center',
+         padding: 5,
+         fontSize: 15
      }
 }
 
