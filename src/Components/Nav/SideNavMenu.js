@@ -25,7 +25,7 @@ const SideNavMenu = (props) => {
                 <Text style={[linkStyle, {marginBottom: 20}]} onPress={() => Actions.FirstTab()}>HOME</Text>
                 <Text style={linkStyle} onPress={() => Actions.achivementScreen()}>ACHIEVEMENTS</Text>
                 <Text style={linkStyle} onPress={() => Actions.profileScreen()}>PROFILE</Text>
-                <Text style={[linkStyle, {marginBottom: 20}]} onPress={() => Actions.Shop()}>SHOP</Text>
+                <Text style={[linkStyle, {marginBottom: 20}]} onPress={() => Actions.Tab4()}>SHOP</Text>
                 <Text style={linkStyle} onPress={() => Actions.profileScreen()}>SETTINGS</Text>
                 <Text style={linkStyle} onPress={() => Actions.profileScreen()}>LOGOUT</Text>
             </View>

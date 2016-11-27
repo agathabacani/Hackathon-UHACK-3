@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import firebase from 'firebase';
+import {Actions} from 'react-native-router-flux';
 
 class Profile extends Component {
     constructor(props) {
@@ -15,6 +16,7 @@ class Profile extends Component {
     componentDidMount() {
         const {uid} = firebase.auth().currentUser;
         firebase.database().ref(`/users/${uid}`).on('value', (snap) => {
+            Actions.ModalError();
             this.setState({
                 totalBalance: snap.val().bankBalance.totalBalance
             });
