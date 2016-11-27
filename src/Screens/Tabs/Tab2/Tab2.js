@@ -44,6 +44,9 @@ class Tab2 extends Component {
         const {container, listWrapper} = styles;
         return (
             <View style={container}>
+                <View style={{position: 'absolute', top: 20, right: 20, flexDirection: 'row', flex: 1,}}>
+                    <Text style={{fontFamily: 'montserratlight', fontSize: 16, color: '#fff', }}>Points: <Text style={{fontFamily: 'montserratsemi', color: '#ffb700'}}>10,500</Text></Text>
+                </View>
                 <ScrollView style={listWrapper}>
                     <ListView
                         dataSource={this.state.dataSource}

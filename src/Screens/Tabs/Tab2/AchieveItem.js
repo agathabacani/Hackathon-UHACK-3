@@ -22,6 +22,7 @@ class AchieveItem extends Component {
         const {count, needed, item} = this.props.item;
         const {todoDesc, textTitle, btnGrp, text, title} = styles;
         return (
+<<<<<<< HEAD
             <View style={{ backgroundColor: count == needed ? 'rgba(200,200,200,0.5)' : '#f6f6f6' , flex: 1, flexDirection: 'row', height: 120, }}>
                 <View style={todoDesc}>
                     <Text style={textTitle}>{title}</Text>
@@ -33,17 +34,33 @@ class AchieveItem extends Component {
                         />
                     </View>
                 
+=======
+            <View style={{ borderRadius: 10 ,backgroundColor: count == needed ? 'rgba(200,200,200,0.5)' : '#f6f6f6' , flex: 1, flexDirection: 'row', height: 120, }}>
+                <View style={styles.todoDesc}>
+                    <Text style={styles.textTitle}>{this.props.item.title}</Text>
+                    <Text style={[styles.text, { marginTop: 5, }]}>Completed: {this.props.item.count}</Text>
+                    <Text style={[styles.text, { marginBottom: 5, }]}>Needed: {this.props.item.needed}</Text>
+                    <PBC
+                        valueStyle={'default'}
+                        progress={(this.props.item.count / this.props.item.needed) * 100}
+                        />
+>>>>>>> a558a609e0722aa3f3ae4997576a0f5f6da75292
                     {/* <Image source={{uri:`${imgPath}`}} style={styles.imgWrapper} resizeMode='stretch' /> */}
               
                 <View style={btnGrp}>
+<<<<<<< HEAD
                     <Image source={{uri:'https://firebasestorage.googleapis.com/v0/b/odin-test-db-147621.appspot.com/o/icon1.png?alt=media&token=32edfcf1-7d8d-4853-913c-5002562d0eac'}} style={styles.imgWrapper} resizeMode='cover' />
                         progress={(count/needed)*100} />
 
     
                     {/* <Image source={{uri:`${imgPath}`}} style={styles.imgWrapper} resizeMode='stretch' /> */}
+=======
+                    <Image source={count == needed ? require('../../../Assets/img/trophy_1.png') : require('../../../Assets/img/trophy_2.png') } style={styles.imgWrapper} resizeMode='cover' />
+>>>>>>> a558a609e0722aa3f3ae4997576a0f5f6da75292
                 </View>
             </View>);
     }
+    //Desired screen view method in back page
     _renderBack() {
         return (
             <View style={{ backgroundColor: '#e0e0e0', flex: 1, height: 120, justifyContent: 'center', alignItems: 'center', paddingLeft: 15, paddingRight: 15, }}>
@@ -65,14 +82,13 @@ const styles = {
         marginLeft: 15,
         marginRight: 15,
         marginTop: 10,
-        borderRadius: 5,
     },
     flipWrapper: {
         flex: 1,
     },
     imgWrapper: {
-        height: 110,
-        width: 90
+        height: 100,
+        width: 70,
     },
     todoDesc: {
         flex: 2,
@@ -84,7 +100,8 @@ const styles = {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#fff',
+        backgroundColor: '#f6f6f6',
+        borderRadius: 10,
     },
     textTitle: {
         fontFamily: 'montserratsemi',
