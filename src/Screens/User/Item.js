@@ -32,7 +32,6 @@ class Item extends Component {
                         valueStyle={'default'}
                         progress={(this.props.item.count / this.props.item.needed) * 100}
                         />
-                    {/* <Image source={{uri:`${imgPath}`}} style={styles.imgWrapper} resizeMode='stretch' /> */}
                 </View>
                 <View style={btnGrp}>
                     <Image source={count == needed ? require('../../Assets/img/trophy_1.png') : require('../../Assets/img/trophy_2.png') } style={styles.imgWrapper} resizeMode='cover' />
