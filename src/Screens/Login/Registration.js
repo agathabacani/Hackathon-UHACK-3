@@ -43,7 +43,6 @@ class Registration extends Component {
                     .then(() => {
                         const { uid } = firebase.auth().currentUser;
                         const { email } = firebase.auth().currentUser;
-                        console.log(uid);
                         firebase.database().ref(`users/${uid}/userInfo`).set({
                             Name: "Reg Reyes",
                             Email: email,

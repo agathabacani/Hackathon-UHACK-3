@@ -7,7 +7,6 @@ class AchieveItem extends Component {
 
 
     render() {
-        console.log(this.props.item.imgURL)
         return (
             <View style={styles.cardWrapper}>
                 <FlipCard style={{ flex: 1 }}

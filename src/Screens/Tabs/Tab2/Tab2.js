@@ -23,7 +23,6 @@ class Tab2 extends Component {
         achievementsRef.on('value', (snap) => {
             const achievements = [];
             snap.forEach((child) => {
-                console.log(child.val())
                 achievements.push({
                     completed: child.val().completed,
                     title: child.val().title,
