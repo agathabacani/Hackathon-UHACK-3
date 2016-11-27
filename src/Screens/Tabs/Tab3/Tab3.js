@@ -31,22 +31,14 @@ class Tab3 extends Component {
             snap.forEach((child) => {
                 challenges.push({
                     key: child.key,
-<<<<<<< HEAD
 
                     title: child.val().title,
 
-=======
-                    title: child.val().title,
->>>>>>> 90f889d11711b5dcb479a25938ac3d1de500a35f
                     acceptedOn: child.val().acceptedOn,
                     category: child.val().category,
                     status: child.val().status,
                     task: child.val().task,
-<<<<<<< HEAD
-                    
 
-=======
->>>>>>> 90f889d11711b5dcb479a25938ac3d1de500a35f
                 });
             });
             this.setState({

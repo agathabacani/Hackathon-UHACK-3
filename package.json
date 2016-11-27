@@ -12,6 +12,7 @@
     "react": "15.4.1",
     "react-native": "0.38.0",
     "react-native-animated-modal": "^1.0.2",
+    "react-native-animated-steps": "^1.0.0",
     "react-native-drawer": "^2.3.0",
     "react-native-elements": "^0.7.0",
     "react-native-flip-card-view": "0.0.4",

@@ -28,7 +28,8 @@ class ChallengeModal extends Component {
         Animated.spring(this.state.offset, {
             duration: 150,
             toValue: -deviceHeight
-        }).start(Actions.pop);
+        }).start();
+        Actions.mainEntryPoint();
     }
     acceptChallenge(){
         const {uid} = firebase.auth().currentUser;
