@@ -23,6 +23,10 @@ class AchieveItem extends Component {
         const {count, needed, item} = this.props.item;
         const {todoDesc, textTitle, btnGrp, text, title} = styles;
         return (
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0f02f11f1ebf4c77fce7280045ad2bad5936fd8a
             <View style={{ backgroundColor: count == needed ? 'rgba(200,200,200,0.5)' : '#f6f6f6' , flex: 1, flexDirection: 'row', height: 120, }}>
                 <View style={todoDesc}>
                     <Text style={textTitle}>{title}</Text>
@@ -30,6 +34,7 @@ class AchieveItem extends Component {
                     <Text style={[text, {marginBottom: 5,}]}>Needed: {needed}</Text>
                     <PBC
                         valueStyle={'default'}
+<<<<<<< HEAD
                         progress={(count/needed)*100}
                         />
                     </View>
@@ -47,10 +52,19 @@ class AchieveItem extends Component {
                 </View>
                 <View style={btnGrp}>
                     <Image source={{uri:'https://firebasestorage.googleapis.com/v0/b/odin-test-db-147621.appspot.com/o/icon1.png?alt=media&token=32edfcf1-7d8d-4853-913c-5002562d0eac'}} style={styles.imgWrapper} resizeMode='cover' />
+=======
+                        progress={(count/needed)*100} />
+
+    
+                    {/* <Image source={{uri:`${imgPath}`}} style={styles.imgWrapper} resizeMode='stretch' /> */}
+                </View>
+
+                <View style={styles.btnGrp}>
+                    <Image source={{ uri: 'https://firebasestorage.googleapis.com/v0/b/odin-test-db-147621.appspot.com/o/icon1.png?alt=media&token=32edfcf1-7d8d-4853-913c-5002562d0eac' }} style={styles.imgWrapper} resizeMode='cover' />
+>>>>>>> 0f02f11f1ebf4c77fce7280045ad2bad5936fd8a
                 </View>
             </View>);
     }
-    //Desired screen view method in back page
     _renderBack() {
         return (
             <View style={{ backgroundColor: '#e0e0e0', flex: 1, height: 120, justifyContent: 'center', alignItems: 'center', paddingLeft: 15, paddingRight: 15, }}>
