@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
 import { Scene, Router, Actions, Modal } from 'react-native-router-flux';
-import { Login, Settings, Profile, Registration } from './Screens';
+import { Login, Settings, Profile, Registration, Shop } from './Screens';
 import { FullScreenModal, NavigationDrawer, TabIcon, SmallModal, ChallengeModal } from './Components';
 import { Tab1, Tab1_1, Tab2, Tab2_1, Tab3, Tab3_1 } from './Screens/Tabs/';
 import OneSignal from 'react-native-onesignal';
@@ -49,7 +49,7 @@ export default class App extends Component {
                             <Scene key="tabWrapper" tabs tabBarStyle={styles.tabBarStyle} tabBarIconContainerStyle={styles.tabIconStyle} pressOpacity={0.7}>
 
                                 {/*TAB SET 1*/}
-                                <Scene key="FirstTab" title="Tab 1" tabID="1" iconType="rowing" icon={TabIcon}>
+                                <Scene key="FirstTab" title="Home" tabID="1" iconType="rowing" icon={TabIcon}>
                                     <Scene key="Tab1" component={Tab1} title="" initial drawerImage={require('./Assets/img/menu_burger.png')} navigationBarStyle={{ backgroundColor: 'transparent', borderBottomColor:'transparent', elevation: 0, }}/>
                                     <Scene key="Tab1_1" component={Tab1_1} title="Tab: 1.1" />
                                 </Scene>
@@ -61,7 +61,7 @@ export default class App extends Component {
                                 </Scene>
 
                                 {/*TAB SET 3*/}
-                                <Scene key="ThirdTab" title="Tab 3" tabID="3" icon={TabIcon}>
+                                <Scene key="ThirdTab" title="Challenges" tabID="3" icon={TabIcon}>
                                     <Scene key="Tab3" component={Tab3} title="Challenges" titleStyle={{color: 'white', fontFamily: 'montserrat'}} drawerImage={require('./Assets/img/menu_burger.png')} navigationBarStyle={{ backgroundColor: 'transparent', borderBottomColor:'transparent', elevation: 0}}/>
                                     <Scene key="Tab3_1" component={Tab3_1} title="Tab: 3.1" />
                                 </Scene>
@@ -70,6 +70,7 @@ export default class App extends Component {
                                 <Scene key="settingsScreen" component={Settings} title="Settings" hideTabBar />
                             
                                 <Scene key="profileScreen" component={Profile} title="Profiles" hideTabBar />
+                                <Scene key="Shop" component={Shop} title="Shop" hideTabBar />
 
 
                             </Scene>
@@ -95,6 +96,8 @@ const styles = {
     },
 
     tabIconStyle: {
+        padding: 10,
+        justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#564c89',
     }

@@ -173,7 +173,7 @@ class Login extends Component {
         const { isError, rememberMe } = this.state;
         return (
             <View style={container}>
-                <Card title="LOGIN" titleStyle={{ fontSize: 25 }}>
+                <Card>
                     <Input label="Email" onChangeText={txtEmail => this.setState({ txtEmail })} />
                     <Input label="Password" onChangeText={txtPassword => this.setState({ txtPassword })} />
                     <View style={btnWrapper}>
@@ -198,7 +198,8 @@ class Login extends Component {
 const styles = {
     container: {
         flex: 1,
-        justifyContent: 'center'
+        justifyContent: 'center',
+        backgroundColor: '#3e3e78'
     },
     btnWrapper: {
         marginTop: 10,
