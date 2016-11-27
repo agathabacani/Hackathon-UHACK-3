@@ -49,13 +49,10 @@ export default class App extends Component {
                             <Scene key="tabWrapper" tabs tabBarStyle={styles.tabBarStyle} tabBarIconContainerStyle={styles.tabIconStyle} pressOpacity={0.7}>
 
                                 {/*TAB SET 1*/}
-<<<<<<< HEAD
-                                <Scene key="FirstTab" title="Tab 1" tabID="1" iconType="rowing" icon={TabIcon}>
-                                    <Scene key="Tab1" component={Tab1} title="" initial drawerImage={require('./Assets/img/menu_burger.png')} navigationBarStyle={{ backgroundColor: 'transparent', borderBottomColor: 'transparent', elevation: 0, }} />
-=======
+
                                 <Scene key="FirstTab" title="Home" tabID="1" iconType="rowing" icon={TabIcon}>
                                     <Scene key="Tab1" component={Tab1} title="" initial drawerImage={require('./Assets/img/menu_burger.png')} navigationBarStyle={{ backgroundColor: 'transparent', borderBottomColor:'transparent', elevation: 0, }}/>
->>>>>>> e69187c3d4580243c511f84a305e398608a8f8e4
+
                                     <Scene key="Tab1_1" component={Tab1_1} title="Tab: 1.1" />
                                 </Scene>
 
@@ -66,13 +63,12 @@ export default class App extends Component {
                                 </Scene>
 
                                 {/*TAB SET 3*/}
-<<<<<<< HEAD
-                                <Scene key="ThirdTab" title="Tab 3" tabID="3" icon={TabIcon}>
-                                    <Scene key="Tab3" component={Tab3} title="Challenges" titleStyle={{ color: 'white', fontFamily: 'montserrat' }} drawerImage={require('./Assets/img/menu_burger.png')} navigationBarStyle={{ backgroundColor: 'transparent', borderBottomColor: 'transparent', elevation: 0 }} />
-=======
+
+                        
+
                                 <Scene key="ThirdTab" title="Challenges" tabID="3" icon={TabIcon}>
                                     <Scene key="Tab3" component={Tab3} title="Challenges" titleStyle={{color: 'white', fontFamily: 'montserrat'}} drawerImage={require('./Assets/img/menu_burger.png')} navigationBarStyle={{ backgroundColor: 'transparent', borderBottomColor:'transparent', elevation: 0}}/>
->>>>>>> e69187c3d4580243c511f84a305e398608a8f8e4
+
                                     <Scene key="Tab3_1" component={Tab3_1} title="Tab: 3.1" />
                                 </Scene>
                                 <Scene key="FourthTab" title="Tab 4" tabID="4" icon={TabIcon}>
