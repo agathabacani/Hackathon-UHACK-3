@@ -26,8 +26,8 @@ const SideNavMenu = (props) => {
                 <Text style={linkStyle} onPress={() => Actions.achivementScreen()}>ACHIEVEMENTS</Text>
                 <Text style={linkStyle} onPress={() => Actions.profileScreen()}>PROFILE</Text>
                 <Text style={[linkStyle, {marginBottom: 20}]} onPress={() => Actions.Tab4()}>SHOP</Text>
-                <Text style={linkStyle} onPress={() => Actions.profileScreen()}>SETTINGS</Text>
-                <Text style={linkStyle} onPress={() => Actions.profileScreen()}>LOGOUT</Text>
+                <Text style={linkStyle} onPress={() => Actions.settingsScreen()}>SETTINGS</Text>
+                <Text style={linkStyle} >LOGOUT</Text>
             </View>
 
             <TouchableOpacity style={{position: 'absolute', bottom: 15, padding: 10, margin: 15, backgroundColor: '#FE8100', flex: 1, justifyContent: 'center', alignItems: 'center', flexDirection: 'row'}}>
