@@ -34,7 +34,6 @@ export default class extends Component {
         firebase.database().ref(`users/${uid}/pendingChallenge/${challengeKey}`).remove();
     }
     render() {
-        console.log(this.props.item.key)
         return (
             <View>
                 <View style={styles.card}>

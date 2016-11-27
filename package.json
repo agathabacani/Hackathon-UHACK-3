@@ -23,7 +23,9 @@
     "react-native-root-toast": "^1.0.3",
     "react-native-router-flux": "^3.37.0",
     "react-native-slider": "^0.9.1",
-    "react-native-vector-icons": "^3.0.0"
+    "react-native-swiper": "^1.5.4",
+    "react-native-vector-icons": "^3.0.0",
+    "simple-carousel-react-native": "^1.0.1"
   },
   "jest": {
     "preset": "react-native"

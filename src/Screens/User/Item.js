@@ -3,7 +3,7 @@ import { Text, View, Image } from 'react-native';
 import FlipCard from 'react-native-flip-card-view';
 import PBC from 'react-native-progress-bar-classic'
 
-class AchieveItem extends Component {
+class Item extends Component {
 
 
     render() {
@@ -35,7 +35,7 @@ class AchieveItem extends Component {
                     {/* <Image source={{uri:`${imgPath}`}} style={styles.imgWrapper} resizeMode='stretch' /> */}
                 </View>
                 <View style={btnGrp}>
-                    <Image source={count == needed ? require('../../../Assets/img/trophy_1.png') : require('../../../Assets/img/trophy_2.png') } style={styles.imgWrapper} resizeMode='cover' />
+                    <Image source={count == needed ? require('../../Assets/img/trophy_1.png') : require('../../Assets/img/trophy_2.png') } style={styles.imgWrapper} resizeMode='cover' />
                 </View>
             </View>);
     }
@@ -94,4 +94,4 @@ const styles = {
     }
 }
 
-export default AchieveItem;
+export default Item;
