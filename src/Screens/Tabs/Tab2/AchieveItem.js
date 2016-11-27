@@ -23,7 +23,6 @@ class AchieveItem extends Component {
         const {count, needed, item} = this.props.item;
         const {todoDesc, textTitle, btnGrp, text, title} = styles;
         return (
-<<<<<<< HEAD
             <View style={{ backgroundColor: count == needed ? 'rgba(200,200,200,0.5)' : '#f6f6f6' , flex: 1, flexDirection: 'row', height: 120, }}>
                 <View style={todoDesc}>
                     <Text style={textTitle}>{title}</Text>
@@ -32,7 +31,9 @@ class AchieveItem extends Component {
                     <PBC
                         valueStyle={'default'}
                         progress={(count/needed)*100}
-=======
+                        />
+                    </View>
+                
             <View style={{ backgroundColor: '#f6f6f6', flex: 1, flexDirection: 'row', height: 120, }}>
                 <View style={styles.todoDesc}>
                     <Text style={styles.textTitle}>{this.props.item.title}</Text>
@@ -41,17 +42,11 @@ class AchieveItem extends Component {
                     <PBC
                         valueStyle={'default'}
                         progress={(this.props.item.count / this.props.item.needed) * 100}
->>>>>>> e69187c3d4580243c511f84a305e398608a8f8e4
                         />
                     {/* <Image source={{uri:`${imgPath}`}} style={styles.imgWrapper} resizeMode='stretch' /> */}
                 </View>
-<<<<<<< HEAD
                 <View style={btnGrp}>
                     <Image source={{uri:'https://firebasestorage.googleapis.com/v0/b/odin-test-db-147621.appspot.com/o/icon1.png?alt=media&token=32edfcf1-7d8d-4853-913c-5002562d0eac'}} style={styles.imgWrapper} resizeMode='cover' />
-=======
-                <View style={styles.btnGrp}>
-                    <Image source={{ uri: 'https://firebasestorage.googleapis.com/v0/b/odin-test-db-147621.appspot.com/o/icon1.png?alt=media&token=32edfcf1-7d8d-4853-913c-5002562d0eac' }} style={styles.imgWrapper} resizeMode='cover' />
->>>>>>> e69187c3d4580243c511f84a305e398608a8f8e4
                 </View>
             </View>);
     }
