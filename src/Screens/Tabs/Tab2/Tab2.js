@@ -8,10 +8,7 @@ import {
 } from 'react-native';
 import Swiper from 'react-native-swiper'
 import PieChart from 'react-native-pie-chart';
-<<<<<<< HEAD
-=======
 import PBC from 'react-native-progress-bar-classic';
->>>>>>> 0f50e74c2810b90e374411734ae30e7c5694d9d7
 
 class Tab2 extends Component {
 
@@ -19,22 +16,6 @@ class Tab2 extends Component {
         const {container, topRow, bottomRow, graph, text, pieChartWrapper, leftChart, rightChart, pieChartStyle, scrollDown, pieTxtWrapper, chartWrapper, rowModify, greenBox, yellowBox, titleText} = styles;
         const chart_wh = 100
         const series = [321, 123, 789, 537]
-<<<<<<< HEAD
-        const sliceColor = ['#F44336', '#2196F3', '#FFEB3B', '#4CAF50', '#FF9800']
-        return (
-            <View style={container}>
-                <ScrollView >
-                    <View style={topRow} >
-                        <Swiper style={styles.wrapper} showsButtons height={300}>
-                            <View style={styles.slide1}>
-                                <Text style={text}>October</Text>
-                            </View>
-                            <View style={styles.slide2}>
-                                <Text style={text}>November</Text>
-                            </View>
-                            <View style={styles.slide3}>
-                                <Text style={text}>December</Text>
-=======
         const sliceColor = ['#F44336', '#2196F3', '#48cfad', '#fc6e51', '#FF9800']
         return (
             <View style={container}>
@@ -64,7 +45,6 @@ class Tab2 extends Component {
                                     resizeMode='cover'
                                     style={{ height: 180, width: 180, alignSelf: 'center', marginTop: 15 }}
                                     />
->>>>>>> 0f50e74c2810b90e374411734ae30e7c5694d9d7
                             </View>
                         </Swiper>
                     </View>
@@ -85,29 +65,18 @@ class Tab2 extends Component {
 
                             <View style={pieTxtWrapper}>
                                 <View style={rowModify}>
-<<<<<<< HEAD
-                                    <Text style={{fontFamily: 'montserratlight', fontSize: 14, }}>Money Earned</Text>
-=======
                                     <Text style={{ fontFamily: 'montserratlight', fontSize: 14, }}>Money Earned</Text>
->>>>>>> 0f50e74c2810b90e374411734ae30e7c5694d9d7
                                     <View style={greenBox} />
                                 </View>
 
                                 <View style={rowModify}>
-<<<<<<< HEAD
-                                    <Text style={{fontFamily: 'montserratlight', fontSize: 14, }}>Money Spent</Text>
-=======
                                     <Text style={{ fontFamily: 'montserratlight', fontSize: 14, }}>Money Spent</Text>
->>>>>>> 0f50e74c2810b90e374411734ae30e7c5694d9d7
                                     <View style={yellowBox} />
                                 </View>
 
                             </View>
                         </View>
                         <View style={scrollDown}>
-<<<<<<< HEAD
-                            <Text style={titleText}>Monthly Statistics</Text>
-=======
                             <Text style={text}>Monthly Statistics</Text>
                             <View style={{ marginLeft: 25, marginRight: 25, marginTop: 15, }}>
                                 <Text style={{ fontFamily: 'montserratlight', color: 'gray', fontSize: 15, marginBottom: 5, }}>Spending Trends</Text>
@@ -130,7 +99,6 @@ class Tab2 extends Component {
                                     progress={60}
                                     />
                             </View>
->>>>>>> 0f50e74c2810b90e374411734ae30e7c5694d9d7
                         </View>
                     </View>
                 </ScrollView>
@@ -146,11 +114,7 @@ const styles = {
         backgroundColor: '#f6f6f6'
     },
     wrapper: {
-<<<<<<< HEAD
-        height: 100
-=======
         height: 100,
->>>>>>> 0f50e74c2810b90e374411734ae30e7c5694d9d7
     },
     bottomRow: {
         flex: 2
@@ -190,10 +154,6 @@ const styles = {
     pieTxtWrapper: {
         height: 100,
         width: 150,
-<<<<<<< HEAD
-        backgroundColor: 'pink',
-=======
->>>>>>> 0f50e74c2810b90e374411734ae30e7c5694d9d7
         justifyContent: 'center',
         alignItems: 'center'
     },
@@ -209,10 +169,6 @@ const styles = {
         flex: 1,
         marginTop: 20,
         height: 300,
-<<<<<<< HEAD
-        backgroundColor: 'red'
-=======
->>>>>>> 0f50e74c2810b90e374411734ae30e7c5694d9d7
     },
     rowModify: {
         flexDirection: 'row',
@@ -221,24 +177,16 @@ const styles = {
     greenBox: {
         height: 10,
         width: 10,
-<<<<<<< HEAD
-        backgroundColor: 'green'
-=======
         backgroundColor: '#48cfad',
         marginLeft: 10,
         marginTop: 5,
->>>>>>> 0f50e74c2810b90e374411734ae30e7c5694d9d7
     },
     yellowBox: {
         height: 10,
         width: 10,
-<<<<<<< HEAD
-        backgroundColor: 'yellow'
-=======
         backgroundColor: '#fc6e51',
         marginLeft: 15,
         marginTop: 5,
->>>>>>> 0f50e74c2810b90e374411734ae30e7c5694d9d7
     },
     titleText: {
         alignSelf: 'center',

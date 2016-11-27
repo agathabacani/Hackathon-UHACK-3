@@ -41,7 +41,8 @@ class Tab1 extends Component {
 
             iconChosen: 6,
 
-            pendingBalance: ''
+            pendingBalance: '',
+
         };
 
         this.panResponder = PanResponder.create({
@@ -129,18 +130,18 @@ class Tab1 extends Component {
     renderModalContent() {
         return (
             <View style={[styles.modalContent]}>
-            <View style={{ backgroundColor: '#ffb700', flex: 1, padding: 10, height: 70, justifyContent: 'center' }}>
+                <View style={{ backgroundColor: '#ffb700', flex: 1, padding: 10, height: 70, justifyContent: 'center' }}>
                     <Text style={{ fontFamily: 'montserratsemi', color: 'white', fontSize: 23, }}>Save How Much?</Text>
                 </View>
-            <View style={{ backgroundColor: '#fff', padding: 10, }}>
-                <Slider
-                    minimumValue={0}
-                    maximumValue={100}
-                    onValueChange={(moneyInput) => this.setState({ moneyInput })}
-                    value={parseInt(this.state.moneyInput)}
-                    step={5} />
-                <Text style={{fontFamily: 'montserratlight'}}>{this.state.moneyInput}</Text>
-            </View>
+                <View style={{ backgroundColor: '#fff', padding: 10, }}>
+                    <Slider
+                        minimumValue={0}
+                        maximumValue={100}
+                        onValueChange={(moneyInput) => this.setState({ moneyInput })}
+                        value={parseInt(this.state.moneyInput)}
+                        step={5} />
+                    <Text style={{ fontFamily: 'montserratlight' }}>{this.state.moneyInput}</Text>
+                </View>
                 {this._renderButton('Save', () => this.setState({ isModalVisible: false }))}
             </View>
         );
@@ -207,6 +208,15 @@ class Tab1 extends Component {
                 pendingBalance: parseInt(this.state.pendingBalance) - parseInt(this.state.moneyInput),
                 isInSavings1: false,
             });
+
+
+
+            firebase.database().ref('/users/uJ1byzLzRBbr35Ij4CiVfaQrKrb2/bankBalance/pendingBalance').set(this.state.pendingBalance).then(() => {
+                var newData = {
+                    item1: this.state.savings1
+                }
+                firebase.database().ref('/users/uJ1byzLzRBbr35Ij4CiVfaQrKrb2/bankBalance/').update(newData);
+            })
         } else {
             this.setState({
                 savings2: parseInt(this.state.savings2) + parseInt(this.state.moneyInput),
@@ -249,7 +259,9 @@ class Tab1 extends Component {
         const {uid} = firebase.auth().currentUser;
         firebase.database().ref(`/users/${uid}`).on('value', (snap) => {
             this.setState({
-                pendingBalance: snap.val().bankBalance.pendingBalance
+                pendingBalance: snap.val().bankBalance.pendingBalance,
+                savings1: snap.val().bankBalance.item1,
+                savings2: snap.val().bankBalance.item2
             });
         });
     }
@@ -257,8 +269,8 @@ class Tab1 extends Component {
     render() {
         return (
             <View style={styles.mainContainer}>
-                <View style={{position: 'absolute', top: 20, right: 20, flexDirection: 'row', flex: 1,}}>
-                    <Text style={{fontFamily: 'montserratlight', fontSize: 16, color: '#fff', }}>Points: <Text style={{fontFamily: 'montserratsemi', color: '#ffb700'}}>10,500</Text></Text>
+                <View style={{ position: 'absolute', top: 20, right: 20, flexDirection: 'row', flex: 1, }}>
+                    <Text style={{ fontFamily: 'montserratlight', fontSize: 16, color: '#fff', }}>Points: <Text style={{ fontFamily: 'montserratsemi', color: '#ffb700' }}>10,500</Text></Text>
                 </View>
                 <View style={styles.goalsWrapper}>
                     <Image

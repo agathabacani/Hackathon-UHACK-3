@@ -3,9 +3,3 @@ export * from './Tab2/Tab2';
 export * from './Tab3/Tab3';
 export * from './Tab4/Tab4';
 export * from './Tab1/Tab1_1';
-<<<<<<< HEAD
-
-=======
-export * from './Tab2/Tab2_1';
-export * from './Tab3/Tab3_1';
->>>>>>> 0f50e74c2810b90e374411734ae30e7c5694d9d7
