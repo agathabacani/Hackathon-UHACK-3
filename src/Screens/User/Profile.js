@@ -7,7 +7,8 @@ class Profile extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            totalBalance: ''
+            totalBalance: '',
+            pendingBalance: ''
         }
     }
     componentWillReceiveProps() {
@@ -16,9 +17,9 @@ class Profile extends Component {
     componentDidMount() {
         const {uid} = firebase.auth().currentUser;
         firebase.database().ref(`/users/${uid}`).on('value', (snap) => {
-            Actions.ModalError();
             this.setState({
-                totalBalance: snap.val().bankBalance.totalBalance
+                totalBalance: snap.val().bankBalance.totalBalance,
+                pendingBalance: snap.val().bankBalance.pendingBalance
             });
         });
     }
@@ -46,6 +47,7 @@ class Profile extends Component {
                         <Text style={styles.text2}>{this.state.totalBalance}</Text>
                     </View>
                 </View>
+<<<<<<< HEAD
                 <View style={{ position: 'absolute', top: 210, height: 400, backgroundColor: '#f6f6f6', }}>
                     <Image
                         source={require('../../Assets/img/divider.png')}
@@ -57,6 +59,12 @@ class Profile extends Component {
                     <View style={avatarWrapper} >
                         <View style={avatar} />
                     </View>
+=======
+                <View style={imgWrap}>
+                     <View style={img}/>
+                      <Text>BALANCE</Text>
+                       <Text>{this.state.pendingBalance}</Text>
+>>>>>>> 878563ac3c6ad1330f5e3028f57ba9a0387a39b2
                 </View>
             </View>
         );
