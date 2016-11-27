@@ -25,11 +25,11 @@ export default class App extends Component {
     }
     handleNotification(message, data, isActive) {
         if (isActive) {
-            Actions.challengeModal({ task: data.task, url: data.url, title: data.title, category: data.taskCategory });
+            Actions.challengeModal({ task: data.task, url: data.url, title: data.title, category: data.taskCategory, value: data.value });
         } else {
             //When not in app and user click this is fired
             //App opens at Root, then Function triggered
-            Actions.challengeModal({ task: data.task, url: data.url, title: data.title, category: data.taskCategory });
+            Actions.challengeModal({ task: data.task, url: data.url, title: data.title, category: data.taskCategory, value: data.value });
         }
     }
     render() {

@@ -10,6 +10,7 @@ export default class extends Component {
         const { uid } = firebase.auth().currentUser;
         const challengeKey = this.props.item.key;
         const challCat = this.props.item.category;
+        const jobValue = this.props.item.value;
 
         firebase.database().ref(`users/${uid}/completedChallenge/${challengeKey}`).set({
             completedAt: new Date().toDateString(),

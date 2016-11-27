@@ -31,14 +31,25 @@ class ChallengeModal extends Component {
         }).start();
         Actions.mainEntryPoint();
     }
+
+    
     acceptChallenge(){
         const {uid} = firebase.auth().currentUser;
+
+
+     
+
+
+
+
         firebase.database().ref(`users/${uid}/pendingChallenge`).push({
              acceptedOn: new Date().toDateString(),
              title: this.props.title,
              task: this.props.task,
              category: this.props.category,
-             status: 'pending'
+             status: 'pending',
+             value: this.props.value
+             
         })
     }
     render() {
